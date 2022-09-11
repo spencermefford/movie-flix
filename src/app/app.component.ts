@@ -5,25 +5,27 @@ import { Apollo, gql } from 'apollo-angular';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'movie-flix';
   genres = [];
   genre = '';
-  loading= true;
-  error:any;
+  loading = true;
+  error: any;
   isCollapsed = false;
 
-  constructor(private apollo: Apollo, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private apollo: Apollo,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     // Get Query Param
-    this.route.queryParams
-      .subscribe(({genre}) => {
-        this.genre = genre;
-      }
-    );
+    this.route.queryParams.subscribe(({ genre }) => {
+      this.genre = genre;
+    });
 
     // Fetch Genres
     this.apollo
@@ -40,18 +42,14 @@ export class AppComponent implements OnInit {
         this.error = result.error;
 
         if (!this.genre) {
-          this.router.navigate(
-            ['/'],
-            { queryParams: { genre: this.genres[0] } }
-          );
+          this.router.navigate(['/'], {
+            queryParams: { genre: this.genres[0] },
+          });
         }
       });
   }
 
   setGenre(genre: string): void {
-    this.router.navigate(
-      ['/'],
-      { queryParams: { genre } }
-    );
+    this.router.navigate(['/'], { queryParams: { genre } });
   }
 }

@@ -3,6 +3,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import { sortBy } from 'lodash';
 import uniq from 'lodash/uniq';
+import { Movie } from '../../types/common';
 import movies from '../movie-mocks';
 
 const typeDefs = gql`
@@ -71,12 +72,12 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    genres: () => uniq(movies.map((m) => m.genres).flat()).sort(),
-    movie: (_: unknown, { id }: { id: string }) =>
-      movies.find((m) => m.id === id),
-    movies: (_: unknown, { genre }: { genre: string }) =>
+    genres: (): string[] => uniq(movies.map(m => m.genres ?? '').flat()).sort(),
+    movie: (_: unknown, { id }: { id: string }): Movie | undefined =>
+      movies.find(m => m.id === id),
+    movies: (_: unknown, { genre }: { genre: string }): Movie[] =>
       sortBy(
-        movies.filter((m) => m.genres?.includes(genre)),
+        movies.filter(m => m.genres?.includes(genre)),
         [
           ({ released }) => {
             return released ? new Date(released) : null;
