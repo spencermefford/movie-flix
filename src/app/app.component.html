@@ -3,7 +3,7 @@
   <nz-sider nzCollapsible [nzCollapsedWidth]="0" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sider-content">
       <ul class="genres">
-        <li *ngFor="let genre of genres">
+        <li *ngFor="let genre of genres" [ngClass]="{'active': genre === currentGenre}" (click)="setGenre(genre)">
           <h2 nz-typography>{{genre}}</h2>
         </li>
       </ul>
