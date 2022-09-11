@@ -1,0 +1,42 @@
+.layout {
+  min-height: 100vh;
+}
+
+nz-header {
+  padding: 0;
+}
+
+nz-content {
+  margin: 24px 16px 0;
+}
+
+.sider-content {
+  color: white;
+}
+
+.genres {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  li {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    padding-left: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #454545;
+    }
+
+    h2 {
+      color: #ccc;
+      margin-bottom: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+}

@@ -1,11 +1,22 @@
-<style>
-</style>
 
-<div>
-  <app-header></app-header>
-  <ul>
-    <li *ngFor="let genre of genres">{{genre}}</li>
-  </ul>
-</div>
+<nz-layout class="layout">
+  <nz-sider nzCollapsible [nzCollapsedWidth]="0">
+    <div class="sider-content">
+      <ul class="genres">
+        <li *ngFor="let genre of genres">
+          <h2 nz-typography>{{genre}}</h2>
+        </li>
+      </ul>
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <app-header></app-header>
+    </nz-header>
+    <nz-content>
+      Hello world
+    </nz-content>
+  </nz-layout>
+</nz-layout>
 
 <router-outlet></router-outlet>
