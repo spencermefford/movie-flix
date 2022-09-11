@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 
@@ -7,10 +7,10 @@ import { Apollo, gql } from 'apollo-angular';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'movie-flix';
   genres = [];
-  currentGenre = '';
+  genre = '';
   loading= true;
   error:any;
   isCollapsed = false;
@@ -21,7 +21,7 @@ export class AppComponent {
     // Get Query Param
     this.route.queryParams
       .subscribe(({genre}) => {
-        this.currentGenre = genre;
+        this.genre = genre;
       }
     );
 
@@ -38,6 +38,13 @@ export class AppComponent {
         this.genres = result?.data?.genres;
         this.loading = result.loading;
         this.error = result.error;
+
+        if (!this.genre) {
+          this.router.navigate(
+            ['/'],
+            { queryParams: { genre: this.genres[0] } }
+          );
+        }
       });
   }
 
@@ -46,6 +53,5 @@ export class AppComponent {
       ['/'],
       { queryParams: { genre } }
     );
-
   }
 }

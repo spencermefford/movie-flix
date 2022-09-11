@@ -3,8 +3,8 @@
   <nz-sider nzCollapsible [nzCollapsedWidth]="0" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sider-content">
       <ul class="genres">
-        <li *ngFor="let genre of genres" [ngClass]="{'active': genre === currentGenre}" (click)="setGenre(genre)">
-          <h2 nz-typography>{{genre}}</h2>
+        <li *ngFor="let g of genres" [ngClass]="{'active': g === genre}" (click)="setGenre(g)">
+          <h2 nz-typography>{{g}}</h2>
         </li>
       </ul>
     </div>
@@ -14,9 +14,8 @@
       <app-header (hamburgerClicked)="isCollapsed = !isCollapsed"></app-header>
     </nz-header>
     <nz-content>
-      Hello world
+      <router-outlet></router-outlet>
     </nz-content>
   </nz-layout>
 </nz-layout>
 
-<router-outlet></router-outlet>

@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { MenuOutline } from '@ant-design/icons-angular/icons';
+import { HomeComponent } from './home/home.component';
+import { MovieComponent } from './movie/movie.component';
 
 registerLocaleData(en);
 
@@ -23,7 +25,9 @@ const icons: IconDefinition[] = [ MenuOutline ];
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,
