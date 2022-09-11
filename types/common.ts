@@ -53,3 +53,7 @@ export interface Movie {
   type?: string;
   lasupdated?: string;
 }
+
+export interface MoviesResp {
+  movies: Movie[];
+}

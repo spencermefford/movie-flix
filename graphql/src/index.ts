@@ -66,7 +66,7 @@ const typeDefs = gql`
   type Query {
     genres: [String]
     movie(id: ID!): Movie
-    movies(genre: String!): [Movie]
+    movies(genre: String): [Movie]
   }
 `;
 
@@ -76,14 +76,11 @@ const resolvers = {
     movie: (_: unknown, { id }: { id: string }): Movie | undefined =>
       movies.find(m => m.id === id),
     movies: (_: unknown, { genre }: { genre: string }): Movie[] =>
-      sortBy(
-        movies.filter(m => m.genres?.includes(genre)),
-        [
-          ({ released }) => {
-            return released ? new Date(released) : null;
-          },
-        ]
-      ).reverse(),
+      sortBy(genre ? movies.filter(m => m.genres?.includes(genre)) : movies, [
+        ({ released }) => {
+          return released ? new Date(released) : null;
+        },
+      ]).reverse(),
   },
 };
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
+import { Movie, MoviesResp } from '../../../types/common';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,9 @@ import { Apollo, gql } from 'apollo-angular';
 })
 export class HomeComponent implements OnInit {
   genre = '';
+  movies: Movie[] = [];
+  loading = true;
+  error: any;
 
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
@@ -19,26 +23,23 @@ export class HomeComponent implements OnInit {
 
       // Fetch Genres
       this.apollo
-        .watchQuery({
+        .watchQuery<MoviesResp>({
           query: gql`
-            query Movies($genre: String!) {
+            query Movies($genre: String) {
               movies(genre: $genre) {
                 released
                 title
               }
             }
           `,
+          variables: {
+            genre,
+          },
         })
-        .valueChanges.subscribe((result: any) => {
-          this.genres = result?.data?.genres;
+        .valueChanges.subscribe(result => {
+          this.movies = result?.data.movies;
           this.loading = result.loading;
           this.error = result.error;
-
-          if (!this.genre) {
-            this.router.navigate(['/'], {
-              queryParams: { genre: this.genres[0] },
-            });
-          }
         });
     });
   }

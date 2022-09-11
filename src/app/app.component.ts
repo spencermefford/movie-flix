@@ -40,12 +40,6 @@ export class AppComponent implements OnInit {
         this.genres = result?.data?.genres;
         this.loading = result.loading;
         this.error = result.error;
-
-        if (!this.genre) {
-          this.router.navigate(['/'], {
-            queryParams: { genre: this.genres[0] },
-          });
-        }
       });
   }
 
