@@ -1,6 +1,6 @@
 
 <nz-layout class="layout">
-  <nz-sider nzCollapsible [nzCollapsedWidth]="0">
+  <nz-sider nzCollapsible [nzCollapsedWidth]="0" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sider-content">
       <ul class="genres">
         <li *ngFor="let genre of genres">
@@ -11,7 +11,7 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <app-header></app-header>
+      <app-header (hamburgerClicked)="isCollapsed = !isCollapsed"></app-header>
     </nz-header>
     <nz-content>
       Hello world

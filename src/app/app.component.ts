@@ -11,6 +11,7 @@ export class AppComponent {
   genres = [];
   loading= true;
   error:any;
+  isCollapsed = true;
 
   constructor(private apollo: Apollo) {}
 
