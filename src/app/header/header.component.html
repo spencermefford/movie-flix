@@ -1,0 +1,17 @@
+<div class="header">
+  <div id="hamburger-menu" nz-icon nzType="menu" nzTheme="outline" (click)="open()"></div>
+  <nz-drawer
+    [nzClosable]="false"
+    [nzVisible]="visible"
+    nzPlacement="right"
+    nzTitle="Basic Drawer"
+    (nzOnClose)="close()"
+  >
+    <ng-container *nzDrawerContent>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+    </ng-container>
+  </nz-drawer>
+  <h1 nz-typography>MFLIX</h1>
+</div>

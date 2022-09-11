@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
@@ -11,12 +12,18 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { MenuOutline } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(en);
 
+const icons: IconDefinition[] = [ MenuOutline ];
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +31,7 @@ registerLocaleData(en);
     GraphQLModule,
     HttpClientModule,
     NzDrawerModule,
+    NzIconModule.forRoot(icons),
     FormsModule,
     BrowserAnimationsModule,
   ],
