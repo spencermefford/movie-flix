@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
+import { formatDuration, intervalToDuration } from 'date-fns';
 import { Movie, MovieResp } from '../../../types/common';
 
 @Component({
@@ -10,6 +11,7 @@ import { Movie, MovieResp } from '../../../types/common';
 })
 export class MovieComponent implements OnInit {
   movie: Movie | null = null;
+  formattedRuntime = '';
   loading = true;
   error: any;
 
@@ -33,6 +35,7 @@ export class MovieComponent implements OnInit {
                 dvd
                 lastUpdated
               }
+              rated
               genres
               cast
               languages
@@ -70,8 +73,16 @@ export class MovieComponent implements OnInit {
       })
       .valueChanges.subscribe(result => {
         this.movie = result?.data?.movie;
+        const duration = intervalToDuration({
+          start: 0,
+          end: (this.movie?.runtime ?? 0) * 1000 * 60,
+        });
+        this.formattedRuntime = formatDuration(duration);
         this.loading = result.loading;
         this.error = result.error;
       });
+
+    const duration = intervalToDuration({ start: 0, end: 61 * 1000 * 60 });
+    console.log(formatDuration(duration));
   }
 }

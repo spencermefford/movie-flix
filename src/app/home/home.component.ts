@@ -9,7 +9,7 @@ import { Movie, MoviesResp } from '../../../types/common';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  genre = '';
+  genre: string | null = null;
   movies: Movie[] = [];
   loading = true;
   error: any;

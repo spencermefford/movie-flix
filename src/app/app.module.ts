@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
@@ -42,6 +45,9 @@ const icons: IconDefinition[] = [MenuOutline];
     NzIconModule.forRoot(icons),
     NzLayoutModule,
     NzToolTipModule,
+    NzTypographyModule,
+    NzDividerModule,
+    NzGridModule,
     FormsModule,
     BrowserAnimationsModule,
   ],

@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         if (event.url.startsWith('/movie')) {
           this.isCollapsed = true;
-        } else if (event.url === '/') {
+        } else if (event.url === '/' || event.url.startsWith('/?genre')) {
           this.isCollapsed = false;
         }
       }

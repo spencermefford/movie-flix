@@ -1,1 +1,24 @@
-<h1>{{movie?.title}}</h1>
+<div class="movie-wrapper">
+  <h1 nz-typography>{{movie?.title}}</h1>
+  <ul class="title-metadata">
+    <li *ngIf="movie?.released">{{ movie?.released | date:'yyyy' }}</li>
+    <li *ngIf="movie?.rated">{{ movie?.rated }}</li>
+    <li *ngIf="formattedRuntime">{{ formattedRuntime }}</li>
+  </ul>
+
+  <div nz-row [nzGutter]="16">
+    <div nz-col class="gutter-row" [nzSpan]="6">
+      <img class="poster" [src]="movie?.poster"/>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="10">
+      <div class="genres">
+        <a *ngFor="let g of movie?.genres" [routerLink]="['']" [queryParams]="{genre: g}" class="genre">{{g}}</a>
+      </div>
+      <p nz-typography>{{movie?.plot}}</p>
+      <nz-divider></nz-divider>
+    </div>
+    <div nz-col class="gutter-row" [nzSpan]="8">
+      Hello
+    </div>
+  </div>
+</div>
