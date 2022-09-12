@@ -16,6 +16,15 @@
       </div>
       <p nz-typography>{{movie?.plot}}</p>
       <nz-divider></nz-divider>
+      <app-movie-metadata label="Director" [value]="movie?.directors"></app-movie-metadata>
+      <nz-divider></nz-divider>
+      <app-movie-metadata label="Cast" [value]="movie?.cast"></app-movie-metadata>
+      <nz-divider></nz-divider>
+      <app-movie-metadata label="Writers" [value]="movie?.writers"></app-movie-metadata>
+      <nz-divider></nz-divider>
+      <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3">
+        {{movie?.fullPlot}}
+      </p>
     </div>
     <div nz-col class="gutter-row" [nzSpan]="8">
       Hello
