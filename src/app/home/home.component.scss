@@ -1,14 +1,24 @@
-h1 {
-  color: white;
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .home-wrapper {
-  width: 100%;
-  overflow: auto;
-}
+  h1 {
+    color: white;
+  }
 
-.movie-card-wrapper {
-  display: flex;
-  gap: .5rem;
-  padding-bottom: 20px;
+  .scroll-wrapper {
+    width: 100%;
+    overflow: auto;
+  }
+
+  .movie-card-wrapper {
+    display: flex;
+    gap: .5rem;
+    padding-bottom: 20px;
+  }
 }

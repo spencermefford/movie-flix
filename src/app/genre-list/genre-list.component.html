@@ -1,4 +1,5 @@
-<ul class="genres">
+<div class="loading-wrapper" *ngIf="loading"><nz-spin nzSimple></nz-spin></div>
+<ul class="genres" *ngIf="!loading">
   <li [ngClass]="{'active': !genre}" [routerLink]="['']">
     <h2>ALL</h2>
   </li>
@@ -6,3 +7,4 @@
     <h2 nz-typography>{{g}}</h2>
   </li>
 </ul>
+

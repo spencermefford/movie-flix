@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
     this.route.queryParams.subscribe(({ genre }) => {
       this.genre = genre;
 
+      this.loading = true;
+
       // Fetch Genres
       this.apollo
         .watchQuery<MoviesResp>({

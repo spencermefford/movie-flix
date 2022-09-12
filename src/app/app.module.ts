@@ -6,6 +6,7 @@ import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
@@ -52,6 +53,7 @@ const icons: IconDefinition[] = [MenuOutline];
     NzTypographyModule,
     NzDividerModule,
     NzGridModule,
+    NzSpinModule,
     FormsModule,
     BrowserAnimationsModule,
   ],

@@ -1,39 +1,42 @@
 <div class="movie-wrapper">
-  <h1 nz-typography>{{movie?.title}}</h1>
-  <ul class="title-metadata">
-    <li *ngIf="movie?.year">{{ movie?.year}}</li>
-    <li *ngIf="movie?.rated">{{ movie?.rated }}</li>
-    <li *ngIf="formattedRuntime">{{ formattedRuntime }}</li>
-  </ul>
+  <div class="loading-wrapper" *ngIf="loading"><nz-spin nzSimple></nz-spin></div>
+  <ng-container *ngIf="!loading">
+    <h1 nz-typography>{{movie?.title}}</h1>
+    <ul class="title-metadata">
+      <li *ngIf="movie?.year">{{ movie?.year}}</li>
+      <li *ngIf="movie?.rated">{{ movie?.rated }}</li>
+      <li *ngIf="formattedRuntime">{{ formattedRuntime }}</li>
+    </ul>
 
-  <div nz-row [nzGutter]="16">
-    <div nz-col class="gutter-row" [nzSpan]="6">
-      <div><img class="poster" [src]="movie?.poster"/></div>
-      <app-movie-reviews [movie]="movie"></app-movie-reviews>
-    </div>
-    <div nz-col class="gutter-row" [nzSpan]="10">
-      <div class="genres">
-        <a *ngFor="let g of movie?.genres" [routerLink]="['']" [queryParams]="{genre: g}" class="genre">{{g}}</a>
+    <div nz-row [nzGutter]="16">
+      <div nz-col class="gutter-row" [nzSpan]="6">
+        <div><img class="poster" [src]="movie?.poster"/></div>
+        <app-movie-reviews [movie]="movie"></app-movie-reviews>
       </div>
-      <p nz-typography>{{movie?.plot}}</p>
+      <div nz-col class="gutter-row" [nzSpan]="10">
+        <div class="genres">
+          <a *ngFor="let g of movie?.genres" [routerLink]="['']" [queryParams]="{genre: g}" class="genre">{{g}}</a>
+        </div>
+        <p nz-typography>{{movie?.plot}}</p>
 
-      <nz-divider></nz-divider>
-      <app-movie-metadata label="Director" [value]="movie?.directors"></app-movie-metadata>
-      <nz-divider></nz-divider>
-      <app-movie-metadata label="Cast" [value]="movie?.cast"></app-movie-metadata>
-      <nz-divider></nz-divider>
-      <app-movie-metadata label="Writers" [value]="movie?.writers"></app-movie-metadata>
-      <nz-divider></nz-divider>
-      <app-movie-metadata label="Languages" [value]="movie?.languages"></app-movie-metadata>
-      <nz-divider></nz-divider>
-      <app-movie-metadata label="Countries" [value]="movie?.countries"></app-movie-metadata>
-      <nz-divider></nz-divider>
+        <nz-divider></nz-divider>
+        <app-movie-metadata label="Director" [value]="movie?.directors"></app-movie-metadata>
+        <nz-divider></nz-divider>
+        <app-movie-metadata label="Cast" [value]="movie?.cast"></app-movie-metadata>
+        <nz-divider></nz-divider>
+        <app-movie-metadata label="Writers" [value]="movie?.writers"></app-movie-metadata>
+        <nz-divider></nz-divider>
+        <app-movie-metadata label="Languages" [value]="movie?.languages"></app-movie-metadata>
+        <nz-divider></nz-divider>
+        <app-movie-metadata label="Countries" [value]="movie?.countries"></app-movie-metadata>
+        <nz-divider></nz-divider>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="8">
+        <h3 nz-typography>Full Plot</h3>
+        <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3" *ngIf="!!movie?.fullPlot">
+          {{movie?.fullPlot}}
+        </p>
+      </div>
     </div>
-    <div nz-col class="gutter-row" [nzSpan]="8">
-      <h3 nz-typography>Full Plot</h3>
-      <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3" *ngIf="!!movie?.fullPlot">
-        {{movie?.fullPlot}}
-      </p>
-    </div>
-  </div>
+  </ng-container>
 </div>
