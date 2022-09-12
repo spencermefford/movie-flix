@@ -1,4 +1,4 @@
-import { Movie } from '../types/common';
+import { Movie } from '../../types/common';
 
 const movies: Movie[] = [
   {

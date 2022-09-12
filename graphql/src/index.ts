@@ -4,7 +4,7 @@ import { typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import { sortBy } from 'lodash';
 import uniq from 'lodash/uniq';
 import { Movie } from '../../types/common';
-import movies from '../movie-mocks';
+import movies from './movie-mocks';
 
 const typeDefs = gql`
   type TomatoMeter {
