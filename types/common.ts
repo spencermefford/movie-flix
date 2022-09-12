@@ -30,7 +30,7 @@ export interface Award {
 }
 
 export interface Movie {
-  id?: string;
+  id: string;
   title?: string;
   rated?: string;
   languages?: string[];
@@ -56,4 +56,12 @@ export interface Movie {
 
 export interface MoviesResp {
   movies: Movie[];
+}
+
+export interface MovieResp {
+  movie: Movie;
+}
+
+export interface GenresResp {
+  genres: string[];
 }

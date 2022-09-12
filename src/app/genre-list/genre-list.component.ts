@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
+import { GenresResp } from '../../../types/common';
 
 @Component({
   selector: 'app-genre-list',
@@ -8,7 +9,7 @@ import { Apollo, gql } from 'apollo-angular';
   styleUrls: ['./genre-list.component.scss'],
 })
 export class GenreListComponent implements OnInit {
-  genres = [];
+  genres: string[] = [];
   loading = true;
   error: any;
   genre = '';
@@ -22,14 +23,14 @@ export class GenreListComponent implements OnInit {
   ngOnInit() {
     // Fetch Genres
     this.apollo
-      .watchQuery({
+      .watchQuery<GenresResp>({
         query: gql`
           query Genres {
             genres
           }
         `,
       })
-      .valueChanges.subscribe((result: any) => {
+      .valueChanges.subscribe(result => {
         this.genres = result?.data?.genres;
         this.loading = result.loading;
         this.error = result.error;

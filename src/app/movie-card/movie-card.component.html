@@ -1,4 +1,4 @@
-<div class="movie-card">
+<div class="movie-card" [routerLink]="['movie', movie?.id]">
   <h3 nz-typography nz-tooltip [nzTooltipTitle]="movie?.title">{{movie?.title}}</h3>
   <div class="image" [ngClass]="{ 'no-image': !movie?.poster}" [ngStyle]="{ 'background-image': 'url(' + movie?.poster + ')' }"></div>
   <div class="metadata">
