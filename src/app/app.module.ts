@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
@@ -17,17 +18,21 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { MenuOutline } from '@ant-design/icons-angular/icons';
 import { HomeComponent } from './home/home.component';
 import { MovieComponent } from './movie/movie.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
+import { GenreListComponent } from './genre-list/genre-list.component';
 
 registerLocaleData(en);
 
-const icons: IconDefinition[] = [ MenuOutline ];
+const icons: IconDefinition[] = [MenuOutline];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    MovieCardComponent,
+    GenreListComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,13 +41,14 @@ const icons: IconDefinition[] = [ MenuOutline ];
     HttpClientModule,
     NzIconModule.forRoot(icons),
     NzLayoutModule,
+    NzToolTipModule,
     FormsModule,
     BrowserAnimationsModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
-    { provide: NZ_ICONS, useValue: icons }
+    { provide: NZ_ICONS, useValue: icons },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

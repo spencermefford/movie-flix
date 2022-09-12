@@ -2,14 +2,7 @@
 <nz-layout class="layout">
   <nz-sider nzCollapsible [nzCollapsedWidth]="0" [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
     <div class="sider-content">
-      <ul class="genres">
-        <li [ngClass]="{'active': !genre}" [routerLink]="['']">
-          <h2>ALL</h2>
-        </li>
-        <li *ngFor="let g of genres" [ngClass]="{'active': g === genre}" (click)="setGenre(g)">
-          <h2 nz-typography>{{g}}</h2>
-        </li>
-      </ul>
+      <app-genre-list></app-genre-list>
     </div>
   </nz-sider>
   <nz-layout>

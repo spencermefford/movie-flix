@@ -30,19 +30,19 @@ export interface Award {
 }
 
 export interface Movie {
+  id?: string;
+  title?: string;
+  rated?: string;
+  languages?: string[];
+  poster?: string;
   tomatoes?: Tomatoes;
   genres?: string[];
   cast?: string[];
-  languages?: string[];
   directors?: string[];
   countries?: string[];
-  id?: string;
   plot?: string;
   runtime?: number;
-  rated?: string;
   numMflixComments?: number;
-  poster?: string;
-  title?: string;
   fullPlot?: string;
   released?: string;
   writers?: string[];

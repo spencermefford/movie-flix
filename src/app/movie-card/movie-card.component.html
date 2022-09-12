@@ -1,0 +1,11 @@
+<div class="movie-card">
+  <h3 nz-typography nz-tooltip [nzTooltipTitle]="movie?.title">{{movie?.title}}</h3>
+  <div class="image" [ngClass]="{ 'no-image': !movie?.poster}" [ngStyle]="{ 'background-image': 'url(' + movie?.poster + ')' }"></div>
+  <div class="metadata">
+    <span *ngIf="movie?.genres?.length" class="genres">{{movie?.genres?.join(' | ')}}</span>
+    <span *ngIf="movie?.languages?.length" class="languages">{{movie?.languages?.join(' | ')}}</span>
+  </div>
+  <div>
+    <span *ngIf="movie?.imdb?.rating" class="rating">{{movie?.imdb?.rating}} / 10</span>
+  </div>
+</div>

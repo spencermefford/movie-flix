@@ -27,8 +27,14 @@ export class HomeComponent implements OnInit {
           query: gql`
             query Movies($genre: String) {
               movies(genre: $genre) {
-                released
+                id
                 title
+                genres
+                languages
+                poster
+                imdb {
+                  rating
+                }
               }
             }
           `,

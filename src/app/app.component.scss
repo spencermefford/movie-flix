@@ -13,38 +13,3 @@ nz-content {
 .sider-content {
   color: white;
 }
-
-.genres {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-
-  li {
-    display: flex;
-    height: 50px;
-    align-items: center;
-    padding-left: 1rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #454545;
-    }
-
-    &.active {
-      background-color: #a3a3a3;
-
-      h2 {
-        color: #000;
-      }
-    }
-
-    h2 {
-      color: #ccc;
-      margin-bottom: 0;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-  }
-
-}

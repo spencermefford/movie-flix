@@ -1,0 +1,53 @@
+$card-width: 255px;
+$card-height: 375px;
+
+.movie-card {
+  color: white;
+  cursor: pointer;
+
+  h3 {
+    color: white;
+    background-color: black;
+    padding: 0.25rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: $card-width;
+  }
+
+  .image {
+    width: $card-width;
+    height: $card-height;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    margin-bottom: 5px;
+  }
+
+  .metadata {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .genres,
+  .languages,
+  .rating {
+    border-radius: 3px;
+    padding: 1px 2px;
+    font-weight: 500;
+  }
+  .genres {
+    color: black;
+    background-color: #ccc;
+  }
+  .languages {
+    color: white;
+    background-color: #333;
+  }
+  .rating {
+    color: black;
+    background-color: #f4c519;
+    font-size: 18px;
+  }
+}

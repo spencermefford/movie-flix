@@ -1,3 +1,14 @@
 h1 {
   color: white;
 }
+
+.home-wrapper {
+  width: 100%;
+  overflow: auto;
+}
+
+.movie-card-wrapper {
+  display: flex;
+  gap: .5rem;
+  padding-bottom: 20px;
+}

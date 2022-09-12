@@ -1,6 +1,7 @@
 <h1>{{genre ?? 'All Genres'}}</h1>
 
-<div *ngFor="let movie of movies">
-  {{movie.title}}
+<div class="home-wrapper">
+  <div class="movie-card-wrapper">
+    <app-movie-card *ngFor="let movie of movies" [movie]="movie"></app-movie-card>
+  </div>
 </div>
-
