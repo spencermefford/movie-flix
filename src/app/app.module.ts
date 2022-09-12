@@ -24,6 +24,7 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { GenreListComponent } from './genre-list/genre-list.component';
 import { MovieMetadataComponent } from './movie-metadata/movie-metadata.component';
+import { MovieReviewsComponent } from './movie-reviews/movie-reviews.component';
 
 registerLocaleData(en);
 
@@ -38,6 +39,7 @@ const icons: IconDefinition[] = [MenuOutline];
     MovieCardComponent,
     GenreListComponent,
     MovieMetadataComponent,
+    MovieReviewsComponent,
   ],
   imports: [
     BrowserModule,

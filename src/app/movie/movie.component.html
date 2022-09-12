@@ -9,20 +9,7 @@
   <div nz-row [nzGutter]="16">
     <div nz-col class="gutter-row" [nzSpan]="6">
       <div><img class="poster" [src]="movie?.poster"/></div>
-      <div class="ratings">
-        <div>
-          <img src="/assets/imdb.svg" height="20"/>
-          <span>{{movie?.imdb?.rating}} / 10</span>
-        </div>
-        <div>
-          <img [src]="movie?.tomatoes?.critic?.meter ? (movie?.tomatoes?.critic?.meter ?? 0) >= 60 ? '/assets/tomatometer-critic-fresh.svg' : '/assets/tomatometer-critic-rotten.svg' : '/assets/tomatometer-critic-na.svg'" height="20"/>
-          <span *ngIf="movie?.tomatoes?.critic?.meter">{{movie?.tomatoes?.critic?.meter}}%</span>
-        </div>
-        <div *ngIf="movie?.tomatoes?.viewer?.meter">
-          <img [src]="movie?.tomatoes?.viewer?.meter ? (movie?.tomatoes?.viewer?.meter ?? 0) >= 60 ? '/assets/tomatometer-viewer-fresh.svg' : '/assets/tomatometer-viewer-rotten.svg' : '/assets/tomatometer-viewer-na.svg'" height="20"/>
-          <span *ngIf="movie?.tomatoes?.viewer?.meter">{{movie?.tomatoes?.viewer?.meter}}%</span>
-        </div>
-      </div>
+      <app-movie-reviews [movie]="movie"></app-movie-reviews>
     </div>
     <div nz-col class="gutter-row" [nzSpan]="10">
       <div class="genres">

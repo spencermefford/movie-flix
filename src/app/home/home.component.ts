@@ -35,6 +35,14 @@ export class HomeComponent implements OnInit {
                 imdb {
                   rating
                 }
+                tomatoes {
+                  critic {
+                    meter
+                  }
+                  viewer {
+                    meter
+                  }
+                }
               }
             }
           `,

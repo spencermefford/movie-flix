@@ -1,0 +1,11 @@
+.reviews {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1rem;
+
+  > div {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+}

@@ -6,6 +6,6 @@
     <span *ngIf="movie?.languages?.length" class="languages">{{movie?.languages?.join(' | ')}}</span>
   </div>
   <div>
-    <span *ngIf="movie?.imdb?.rating" class="rating">{{movie?.imdb?.rating}} / 10</span>
+    <app-movie-reviews [movie]="movie"></app-movie-reviews>
   </div>
 </div>
