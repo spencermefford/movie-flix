@@ -1,20 +1,35 @@
 <div class="movie-wrapper">
   <h1 nz-typography>{{movie?.title}}</h1>
   <ul class="title-metadata">
-    <li *ngIf="movie?.released">{{ movie?.released | date:'yyyy' }}</li>
+    <li *ngIf="movie?.year">{{ movie?.year}}</li>
     <li *ngIf="movie?.rated">{{ movie?.rated }}</li>
     <li *ngIf="formattedRuntime">{{ formattedRuntime }}</li>
   </ul>
 
   <div nz-row [nzGutter]="16">
     <div nz-col class="gutter-row" [nzSpan]="6">
-      <img class="poster" [src]="movie?.poster"/>
+      <div><img class="poster" [src]="movie?.poster"/></div>
+      <div class="ratings">
+        <div>
+          <img src="/assets/imdb.svg" height="20"/>
+          <span>{{movie?.imdb?.rating}} / 10</span>
+        </div>
+        <div>
+          <img [src]="movie?.tomatoes?.critic?.meter ? (movie?.tomatoes?.critic?.meter ?? 0) >= 60 ? '/assets/tomatometer-critic-fresh.svg' : '/assets/tomatometer-critic-rotten.svg' : '/assets/tomatometer-critic-na.svg'" height="20"/>
+          <span *ngIf="movie?.tomatoes?.critic?.meter">{{movie?.tomatoes?.critic?.meter}}%</span>
+        </div>
+        <div *ngIf="movie?.tomatoes?.viewer?.meter">
+          <img [src]="movie?.tomatoes?.viewer?.meter ? (movie?.tomatoes?.viewer?.meter ?? 0) >= 60 ? '/assets/tomatometer-viewer-fresh.svg' : '/assets/tomatometer-viewer-rotten.svg' : '/assets/tomatometer-viewer-na.svg'" height="20"/>
+          <span *ngIf="movie?.tomatoes?.viewer?.meter">{{movie?.tomatoes?.viewer?.meter}}%</span>
+        </div>
+      </div>
     </div>
     <div nz-col class="gutter-row" [nzSpan]="10">
       <div class="genres">
         <a *ngFor="let g of movie?.genres" [routerLink]="['']" [queryParams]="{genre: g}" class="genre">{{g}}</a>
       </div>
       <p nz-typography>{{movie?.plot}}</p>
+
       <nz-divider></nz-divider>
       <app-movie-metadata label="Director" [value]="movie?.directors"></app-movie-metadata>
       <nz-divider></nz-divider>
@@ -22,12 +37,16 @@
       <nz-divider></nz-divider>
       <app-movie-metadata label="Writers" [value]="movie?.writers"></app-movie-metadata>
       <nz-divider></nz-divider>
-      <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3">
-        {{movie?.fullPlot}}
-      </p>
+      <app-movie-metadata label="Languages" [value]="movie?.languages"></app-movie-metadata>
+      <nz-divider></nz-divider>
+      <app-movie-metadata label="Countries" [value]="movie?.countries"></app-movie-metadata>
+      <nz-divider></nz-divider>
     </div>
     <div nz-col class="gutter-row" [nzSpan]="8">
-      Hello
+      <h3 nz-typography>Full Plot</h3>
+      <p nz-typography nzEllipsis nzExpandable [nzEllipsisRows]="3" *ngIf="!!movie?.fullPlot">
+        {{movie?.fullPlot}}
+      </p>
     </div>
   </div>
 </div>

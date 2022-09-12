@@ -28,12 +28,11 @@ export class MovieComponent implements OnInit {
             movie(id: $id) {
               tomatoes {
                 viewer {
-                  numReviews
                   meter
-                  rating
                 }
-                dvd
-                lastUpdated
+                critic {
+                  meter
+                }
               }
               rated
               genres
