@@ -94,6 +94,7 @@ async function listen(port: number) {
     typeDefs: [...scalarTypeDefs, typeDefs],
     resolvers,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+    introspection: true,
   });
   await server.start();
 
