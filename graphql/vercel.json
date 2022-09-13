@@ -1,5 +1,22 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "public",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "public/index.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "public/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "public/index.js"
+    }
+  ]
 }
