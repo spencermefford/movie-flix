@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc-watch --outDir ./dist --onSuccess \"node ./public/index.js\"",
-    "lint": "eslint . --ext .ts --ext .gql --ext .graphql"
+    "lint": "eslint . --ext .ts --ext .gql --ext .graphql",
+    "start": "node ./public/index.js"
   },
   "keywords": [],
   "author": "",
