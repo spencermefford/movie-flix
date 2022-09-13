@@ -26,6 +26,23 @@ export class MovieComponent implements OnInit {
         query: gql`
           query Movie($id: ID!) {
             movie(id: $id) {
+              id
+              rated
+              genres
+              cast
+              languages
+              directors
+              countries
+              plot
+              runtime
+              poster
+              title
+              fullPlot
+              writers
+              year
+              imdb {
+                rating
+              }
               tomatoes {
                 viewer {
                   meter
@@ -34,35 +51,6 @@ export class MovieComponent implements OnInit {
                   meter
                 }
               }
-              rated
-              genres
-              cast
-              languages
-              directors
-              countries
-              id
-              plot
-              runtime
-              numMflixComments
-              poster
-              title
-              fullPlot
-              released
-              writers
-              lastUpdated
-              awards {
-                wins
-                nominations
-                text
-              }
-              year
-              imdb {
-                rating
-                votes
-                id
-              }
-              type
-              lasupdated
             }
           }
         `,

@@ -1,5 +1,3 @@
-// import { ApolloServer, gql } from 'apollo-server';
-// import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { ApolloServer, gql } from 'apollo-server-express';
 import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
 import express from 'express';
@@ -7,7 +5,7 @@ import { typeDefs as scalarTypeDefs } from 'graphql-scalars';
 import http from 'http';
 import { sortBy } from 'lodash';
 import uniq from 'lodash/uniq';
-import { Movie } from './common';
+import { Movie } from './types';
 import movies from './movie-mocks';
 
 const typeDefs = gql`
@@ -87,19 +85,6 @@ const resolvers = {
       ]).reverse(),
   },
 };
-
-// const server = new ApolloServer({
-//   typeDefs: [...scalarTypeDefs, typeDefs],
-//   resolvers,
-//   csrfPrevention: true,
-//   cache: 'bounded',
-//   plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
-// });
-
-// // The `listen` method launches a web server.
-// server.listen().then(({ url }: { url: string }) => {
-//   console.log(`🚀  Server ready at ${url}`);
-// });
 
 async function listen(port: number) {
   const app = express();
