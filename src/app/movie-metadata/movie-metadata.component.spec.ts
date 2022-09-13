@@ -8,9 +8,8 @@ describe('MovieMetadataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MovieMetadataComponent ]
-    })
-    .compileComponents();
+      declarations: [MovieMetadataComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MovieMetadataComponent);
     component = fixture.componentInstance;
