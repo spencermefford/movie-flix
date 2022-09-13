@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "strict": true /* Enable all strict type-checking options. */,
+    "moduleResolution": "node",
+    "baseUrl": "./" /* Base directory to resolve non-absolute module names. */,
+    "outDir": "dist" /* Redirect output structure to the directory. */,
+    "rootDir": "src" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
+    "target": "es2020",
     "module": "commonjs",
-    "lib": [
-      "esnext"
-    ],
-    "strict": true,
-    "outDir": "dist",
-    "sourceMap": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "lib": [
+      "dom",
+      "es2020"
+    ],
+    "skipLibCheck": true /* Skip type checking of declaration files. */
   }
 }
