@@ -18,7 +18,7 @@ export class MovieComponent implements OnInit {
   constructor(private apollo: Apollo, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const movieId = this.route.snapshot.paramMap.get('id');
 
     // Fetch Movie
     this.apollo
@@ -55,7 +55,7 @@ export class MovieComponent implements OnInit {
           }
         `,
         variables: {
-          id,
+          id: movieId,
         },
       })
       .valueChanges.subscribe(result => {
@@ -68,8 +68,5 @@ export class MovieComponent implements OnInit {
         this.loading = result.loading;
         this.error = result.error;
       });
-
-    const duration = intervalToDuration({ start: 0, end: 61 * 1000 * 60 });
-    console.log(formatDuration(duration));
   }
 }

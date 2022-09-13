@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
     // Get Query Param
     this.route.queryParams.subscribe(({ genre }) => {
       this.genre = genre;
-
       this.loading = true;
 
       // Fetch Genres
