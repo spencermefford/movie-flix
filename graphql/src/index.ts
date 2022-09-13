@@ -105,9 +105,10 @@ async function listen(port: number) {
 }
 
 async function main() {
+  const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 4000;
   try {
-    await listen(process.env.PORT ? parseInt(process.env.PORT, 10) : 4000);
-    console.log('🚀 Server is ready at http://localhost:4000/graphql');
+    await listen(port);
+    console.log(`🚀 Server is ready at http://localhost:${port}/graphql`);
   } catch (err) {
     console.error('💀 Error starting the node server', err);
   }
